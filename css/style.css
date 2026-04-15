@@ -1200,3 +1200,213 @@ body {
         padding: 12px 14px;
     }
 }
+
+
+
+
+/* about page styling */
+
+
+
+
+/* ===== RESET ===== */
+
+
+
+
+.navbar {
+    background-color: #06345A;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.navbar-left {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.menu {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.menu:hover {
+    color: #79beeb;
+    transform: scale(1.2);
+}
+
+
+.navbar-left h1 {
+    margin-left: 50px;
+    font-size: 35px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.navbar-right .page-title {
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+/* ===== MAIN ===== */
+.main-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 30px;
+}
+
+/* ===== TEAM CARD ===== */
+.team-card {
+    background-color: #06345A;
+    border-radius: 18px;
+    padding: 20px 40px 36px;
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1100px;
+    position: relative;
+}
+
+/* ===== MEMBER ===== */
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 180px;
+    max-width: 220px;
+}
+
+/* ===== AVATAR ===== */
+.avatar-wrapper {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: #06345A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: -50px;
+    border: 4px solid #06345A;
+    transition: transform 0.2s;
+}
+
+.avatar-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.avatar-wrapper:hover .upload-overlay {
+    opacity: 1;
+}
+
+.avatar-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.avatar-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.avatar-img.hidden {
+    display: none;
+}
+
+/* Upload overlay on hover */
+.upload-overlay {
+    display: none;
+}
+
+.upload-overlay span {
+    font-size: 20px;
+}
+
+/* Hidden file input */
+.file-input {
+    display: none;
+}
+
+/* ===== NAME & ROLE ===== */
+.member-name {
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.member-role {
+    color: #cde0f5;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background-color: #06345A;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin-top: auto;
+}
+
+.dot {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+    .team-card {
+        gap: 24px;
+        padding: 16px 16px 28px;
+    }
+
+    .avatar-wrapper {
+        width: 120px;
+        height: 120px;
+        margin-top: -30px;
+    }
+
+    .avatar-icon {
+        width: 75px;
+        height: 75px;
+    }
+
+    .member {
+        min-width: 130px;
+    }
+}

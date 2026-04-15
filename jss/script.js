@@ -167,3 +167,25 @@ function renderTable() {
 if (document.getElementById('issueTableBody')) {
   loadIssues();
 }
+
+
+// ── About Page — Photo Upload ────────────────────────────
+function triggerUpload(inputId) {
+  const el = document.getElementById(inputId);
+  if (el) el.click();
+}
+
+function loadPhoto(input, photoId, iconId) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const img  = document.getElementById(photoId);
+    const icon = document.getElementById(iconId);
+    img.src = e.target.result;
+    img.classList.remove('hidden');
+    if (icon) icon.style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
