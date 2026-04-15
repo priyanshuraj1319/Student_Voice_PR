@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Voice - About</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-left">
+
+      <div class="menu" onclick="toggleMenu()">&#9776;</div>
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="index.html">🏠 Home</a>
+        <a href="report.html">📝 Report an Issue</a>
+        <a href="dashboard.html">📊 Dashboard</a>
+        <a href="admin.html">⚙️ Admin Panel</a>
+        <a href="about.html">ℹ️ About</a>
+      </div>
+
+      <h1>Student Voice</h1>
+    </div>
+    <div class="navbar-right">
+      <span class="page-title">About</span>
+    </div>
+  </header>
+
+  <!-- TEAM SECTION -->
+  <main class="main-content">
+    <div class="team-card">
+
+      <!-- Member 1 -->
+      <div class="member">
+        <div class="avatar-wrapper" onclick="triggerUpload('input1')">
+          <img id="photo1" class="avatar-img hidden" alt="Priyanshu Raj" />
+          <div class="avatar-icon" id="icon1">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="35" r="22" fill="white" />
+              <ellipse cx="50" cy="85" rx="35" ry="22" fill="white" />
+            </svg>
+          </div>
+          <div class="upload-overlay"><span>📷</span></div>
+        </div>
+        <input type="file" id="input1" accept="image/*" class="file-input"
+          onchange="loadPhoto(this, 'photo1', 'icon1')" />
+        <div class="member-name">Priyanshu Raj</div>
+        <div class="member-role">UX/UI Designer</div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="member">
+        <div class="avatar-wrapper" onclick="triggerUpload('input2')">
+          <img id="photo2" class="avatar-img hidden" alt="Munna Oraon" />
+          <div class="avatar-icon" id="icon2">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="35" r="22" fill="white" />
+              <ellipse cx="50" cy="85" rx="35" ry="22" fill="white" />
+            </svg>
+          </div>
+          <div class="upload-overlay"><span>📷</span></div>
+        </div>
+        <input type="file" id="input2" accept="image/*" class="file-input"
+          onchange="loadPhoto(this, 'photo2', 'icon2')" />
+        <div class="member-name">Munna Oraon</div>
+        <div class="member-role">Frontend Logic Developer</div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="member">
+        <div class="avatar-wrapper" onclick="triggerUpload('input3')">
+          <img id="photo3" class="avatar-img hidden" alt="Amit Kumar Bhagat" />
+          <div class="avatar-icon" id="icon3">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="35" r="22" fill="white" />
+              <ellipse cx="50" cy="85" rx="35" ry="22" fill="white" />
+            </svg>
+          </div>
+          <div class="upload-overlay"><span>📷</span></div>
+        </div>
+        <input type="file" id="input3" accept="image/*" class="file-input"
+          onchange="loadPhoto(this, 'photo3', 'icon3')" />
+        <div class="member-name">Amit Kumar Bhagat</div>
+        <div class="member-role">Dashboard Developer</div>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="member">
+        <div class="avatar-wrapper" onclick="triggerUpload('input4')">
+          <img id="photo4" class="avatar-img hidden" alt="Shambhavi Dhanya" />
+          <div class="avatar-icon" id="icon4">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="35" r="22" fill="white" />
+              <ellipse cx="50" cy="85" rx="35" ry="22" fill="white" />
+            </svg>
+          </div>
+          <div class="upload-overlay"><span>📷</span></div>
+        </div>
+        <input type="file" id="input4" accept="image/*" class="file-input"
+          onchange="loadPhoto(this, 'photo4', 'icon4')" />
+        <div class="member-name">Shambhavi Dhanya</div>
+        <div class="member-role">Admin Module Developer</div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>Help</span>
+    <span class="dot">&#8226;</span>
+    <span>Privacy Policy</span>
+    <span class="dot">&#8226;</span>
+    <span>Terms of Service</span>
+  </footer>
+
+  <script src="jss/script.js"></script>
+</body>
+
+</html>
