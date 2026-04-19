@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Student Voice - Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ── SCREEN 1: Role Select ── -->
+    <div class="screen" id="roleScreen">
+        <div class="login-card">
+            <h1 class="brand">STUDENT VOICE</h1>
+
+            <div class="role-buttons">
+                <button class="role-btn" onclick="selectRole('student')">STUDENT</button>
+                <button class="role-btn" onclick="selectRole('admin')">ADMIN</button>
+            </div>
+
+            <p class="role-hint">
+                Do select a button,<br>
+                if u are a student and want to submit an issue, click on "Student" button.<br>
+                if you are an admin, click on the "Admin" button.
+            </p>
+        </div>
+    </div>
+
+    <!-- ── SCREEN 2: OTP Login ── -->
+    <div class="screen hidden" id="otpScreen">
+        <div class="login-card otp-card">
+            <h1 class="brand">STUDENT VOICE</h1>
+            <h2 class="portal-title" id="portalTitle">STUDENT PORTAL</h2>
+            <p class="go_bk_bt" onclick="goBack()">← Go Back</p>
+
+            <!-- Phone Number Input -->
+            <input type="number" id="phoneInput" class="phone-input" placeholder="Enter your number" maxlength="10" />
+
+            <!-- OTP Boxes Row -->
+            <div class="otp-row">
+                <div class="otp-section">
+                    <div class="otp-boxes">
+                        <input class="otp-box" id="otp1" maxlength="1" type="text" oninput="otpMove(this, 'otp2')" />
+                        <input class="otp-box" id="otp2" maxlength="1" type="text" oninput="otpMove(this, 'otp3')" />
+                        <input class="otp-box" id="otp3" maxlength="1" type="text" oninput="otpMove(this, 'otp4')" />
+                        <input class="otp-box" id="otp4" maxlength="1" type="text" />
+                    </div>
+                    <span class="gen-otp-text" onclick="generateOTP()">generate otp</span>
+                </div>
+                <button class="verify-btn" onclick="verifyOTP()">VERIFY</button>
+            </div>
+
+        </div>
+
+        <!-- OTP Popup (bottom right) -->
+        <div class="otp-popup hidden" id="otpPopup">
+            OTP : <span id="otpDisplay"></span>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <span>Help</span>
+        <span class="dot">&#8226;</span>
+        <span>Privacy Policy</span>
+        <span class="dot">&#8226;</span>
+        <span>Terms of Service</span>
+    </footer>
+
+
+    <script src="jss/script.js"></script>
+</body>
+
+</html>
