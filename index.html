@@ -16,9 +16,8 @@
             <a href="index.html">🏠 Home</a>
             <a href="report.html">📝 Report an Issue</a>
             <a href="dashboard.html">📊 Dashboard</a>
-            <a href="admin.html">⚙️ Admin Panel</a>
             <a href="about.html">ℹ️ About</a>
-            <a href="#" onclick="logout()">🚪 Log Out</a>  
+            <a href="#" onclick="logout()">🚪 Log Out</a>
 
         </div>
 
@@ -98,7 +97,15 @@
         <span class="dot">&#8226;</span>
         <span>Terms of Service</span>
     </footer>
-    <script src="jss/script.js"></script>
+
+    <script>
+        // Session check — login nahi hai toh wapas login page
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.replace('login.html');
+        }
+    </script>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>
