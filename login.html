@@ -7,7 +7,6 @@
 
 <body>
 
-    <!-- ── SCREEN 1: Role Select ── -->
     <div class="screen" id="roleScreen">
         <div class="login-card">
             <h1 class="brand">STUDENT VOICE</h1>
@@ -23,20 +22,18 @@
 
             <p class="role-hint">
                 Do select a button,<br>
-                if u are a student and want to report an issue, click on "Student" button.<br>
-                if you are an admin, click on the "Admin" button.
+                if u are a student and want to report an issue, go to "Student Portal".<br>
+                if you are an admin, go to "Admin Portal".
             </p>
         </div>
     </div>
 
-    <!-- ── SCREEN 2: OTP Login ── -->
     <div class="screen hidden" id="otpScreen">
         <div class="login-card otp-card">
             <h1 class="brand">STUDENT VOICE</h1>
             <h2 class="portal-title" id="portalTitle">STUDENT PORTAL</h2>
             <p class="go_bk_bt" onclick="goBack()">← Go Back</p>
 
-            <!-- Admin Login Form (hidden by default) -->
             <div id="adminLoginForm" class="hidden">
                 <input type="text" id="adminId" class="phone-input" placeholder="Enter Admin ID" />
                 <input type="password" id="adminPass" class="phone-input" placeholder="Enter Password"
@@ -44,16 +41,12 @@
                 <button class="verify-btn" style="margin-top:14px;" onclick="verifyAdmin()">LOGIN</button>
             </div>
 
-            <!-- OTP section (student only) -->
             <div id="otpSection">
-                <!-- existing otp-row div yahan rahega -->
 
 
-                <!-- Phone Number Input -->
                 <input type="number" id="phoneInput" class="phone-input" placeholder="Enter your number"
                     maxlength="10" />
 
-                <!-- OTP Boxes Row -->
                 <div class="otp-row">
                     <div class="otp-section">
                         <div class="otp-boxes">
@@ -73,7 +66,6 @@
 
         </div>
 
-        <!-- OTP Popup (bottom right) -->
         <div class="otp-popup hidden" id="otpPopup">
             OTP : <span id="otpDisplay"></span>
         </div>
@@ -95,13 +87,10 @@
             }
         }
 
-        // Runs on normal page load
         checkAuth();
 
-        // Runs when page is restored from bfcache (back/forward navigation)
         window.addEventListener('pageshow', function (event) {
             if (event.persisted) {
-                // Page was restored from bfcache
                 checkAuth();
             }
         });

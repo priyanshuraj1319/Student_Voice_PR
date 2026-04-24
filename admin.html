@@ -12,7 +12,6 @@
 
       <div class="menu" onclick="toggleMenu()">&#9776;</div>
 
-      <!-- Dropdown Menu -->
       <div class="dropdown-menu" id="dropdownMenu">
         <a href="admin.html">⚙️ Admin Panel</a>
         <a href="about.html">ℹ️ About</a>
@@ -109,7 +108,6 @@
   </footer>
 
   <script>
-    // Protect this page from bfcache bypass
     window.addEventListener('pageshow', function (event) {
       if (event.persisted && !sessionStorage.getItem('loggedIn')) {
         window.location.replace('login.html');

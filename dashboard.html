@@ -7,13 +7,11 @@
 
 <body>
 
-    <!-- NAVBAR -->
     <header class="navbar">
         <div class="navbar-left">
 
             <div class="menu" onclick="toggleMenu()">&#9776;</div>
 
-            <!-- Dropdown Menu -->
             <div class="dropdown-menu" id="dropdownMenu">
                 <a href="index.html">🏠 Home</a>
                 <a href="report.html">📝 Report an Issue</a>
@@ -30,7 +28,6 @@
         </div>
     </header>
 
-    <!-- STATS CARDS -->
     <div class="stats-container">
         <div class="stat-card">
             <div class="stat-label">Total Issue</div>
@@ -50,7 +47,6 @@
         </div>
     </div>
 
-    <!-- FILTER SECTION -->
     <section class="filter-section">
         <div class="filter-group">
             <label for="filterCategory">Filter by Category</label>
@@ -82,7 +78,6 @@
 
     </section>
 
-    <!-- ISSUE TABLE -->
     <div class="table-wrapper">
         <table class="issue-table">
             <thead>
@@ -99,7 +94,6 @@
             </tbody>
         </table>
 
-        <!-- PAGINATION -->
         <div class="pagination">
             <button class="page-btn" id="prevBtn" onclick="changePage(-1)">&#60;</button>
             <span class="page-num" id="pageNum">01</span>
@@ -107,7 +101,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <a href="#">Help</a>
         <span class="dot">•</span>
@@ -117,7 +110,6 @@
     </footer>
 
     <script>
-        // Protect this page from bfcache bypass
         window.addEventListener('pageshow', function (event) {
             if (event.persisted && !sessionStorage.getItem('loggedIn')) {
                 window.location.replace('login.html');

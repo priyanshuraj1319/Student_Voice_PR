@@ -168,7 +168,6 @@ if (document.getElementById('issueTableBody')) {
 }
 
 
-// ── About Page — Photo Upload ────────────────────────────
 function triggerUpload(inputId) {
     const el = document.getElementById(inputId);
     if (el) el.click();
@@ -190,14 +189,12 @@ function loadPhoto(input, photoId, iconId) {
 }
 
 
-// ── Role check — Student ko Admin Panel na dikhe ─────────
 const role = sessionStorage.getItem('role');
 const adminLink = document.getElementById('adminLink');
 if (adminLink && role === 'student') {
     adminLink.style.display = 'none';
 }
 
-// ── Logout ───────────────────────────────────────────────
 function logout() {
     sessionStorage.removeItem('loggedIn');
     sessionStorage.removeItem('role');
@@ -284,7 +281,6 @@ function otpMove(current, nextId) {
 }
 
 
-// ── FIXED: session is now set ONLY after OTP is correct ──
 function verifyOTP() {
     const entered =
         document.getElementById('otp1').value +
@@ -298,7 +294,6 @@ function verifyOTP() {
     }
 
     if (entered === generatedOTP) {
-        // Set session ONLY here, after correct OTP
         sessionStorage.setItem('loggedIn', 'true');
         sessionStorage.setItem('role', selectedRole);
 
@@ -357,7 +352,6 @@ function verifyAdmin() {
     }
 }
 
-// ── PAGE GUARD ─────────────────────────────────────────
 (function () {
     const loggedIn = sessionStorage.getItem('loggedIn');
     const role = sessionStorage.getItem('role');
@@ -375,7 +369,6 @@ function verifyAdmin() {
         return;
     }
 
-    // Popstate: sirf tab block karo jab logged-out user protected page pe aaye
     window.addEventListener('popstate', function () {
         const currentPage = window.location.pathname.split('/').pop();
         const isLoggedIn = sessionStorage.getItem('loggedIn');
