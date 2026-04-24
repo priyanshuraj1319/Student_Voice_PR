@@ -88,11 +88,23 @@
     </footer>
 
     <script>
-        // Agar already logged in hai toh login page mat dikhao
-        if (sessionStorage.getItem('loggedIn')) {
-            const role = sessionStorage.getItem('role');
-            window.location.replace(role === 'admin' ? 'admin.html' : 'index.html');
+        function checkAuth() {
+            if (sessionStorage.getItem('loggedIn')) {
+                const role = sessionStorage.getItem('role');
+                window.location.replace(role === 'admin' ? 'admin.html' : 'index.html');
+            }
         }
+
+        // Runs on normal page load
+        checkAuth();
+
+        // Runs when page is restored from bfcache (back/forward navigation)
+        window.addEventListener('pageshow', function (event) {
+            if (event.persisted) {
+                // Page was restored from bfcache
+                checkAuth();
+            }
+        });
     </script>
 
     <script src="js/script.js"></script>

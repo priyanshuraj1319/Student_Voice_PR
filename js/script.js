@@ -201,7 +201,7 @@ if (adminLink && role === 'student') {
 function logout() {
     sessionStorage.removeItem('loggedIn');
     sessionStorage.removeItem('role');
-    window.location.href = 'login.html';
+    window.location.replace('login.html'); // use replace, not href
 }
 
 

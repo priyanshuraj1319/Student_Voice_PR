@@ -118,10 +118,12 @@
   </footer>
 
   <script>
-    // Session check — login nahi hai toh wapas login page
-    if (!sessionStorage.getItem('loggedIn')) {
-      window.location.replace('login.html');
-    }
+    // Protect this page from bfcache bypass
+    window.addEventListener('pageshow', function (event) {
+      if (event.persisted && !sessionStorage.getItem('loggedIn')) {
+        window.location.replace('login.html');
+      }
+    });
   </script>
 
   <script src="js/script.js"></script>
