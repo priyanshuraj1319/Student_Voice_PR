@@ -85,6 +85,7 @@
                     <th>ID</th>
                     <th>Category</th>
                     <th>Description</th>
+                    <th>Date</th>
                     <th>Priority</th>
                     <th>Status</th>
                 </tr>
@@ -108,14 +109,6 @@
         <span class="dot">•</span>
         <a href="#">Terms of Service</a>
     </footer>
-
-    <script>
-        window.addEventListener('pageshow', function (event) {
-            if (event.persisted && !sessionStorage.getItem('loggedIn')) {
-                window.location.replace('login.html');
-            }
-        });
-    </script>
 
     <script src="js/script.js"></script>
 </body>

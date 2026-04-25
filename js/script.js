@@ -36,6 +36,9 @@ if (issueForm) {
 
         let issues = JSON.parse(localStorage.getItem('issues')) || [];
 
+        const now = new Date();
+        const formattedDate = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+
         const issue = {
             id: Date.now(),
             name,
@@ -44,7 +47,8 @@ if (issueForm) {
             category,
             priority,
             description: desc,
-            status: 'Not Open'
+            status: 'Not Open',
+            date: formattedDate
         };
 
         issues.push(issue);
@@ -140,7 +144,7 @@ function renderTable() {
         document.querySelector('.issue-table thead tr th:last-child').textContent.trim() === 'Actions';
 
     if (pageItems.length === 0) {
-        tbody.innerHTML = `<tr class="empty-row"><td colspan="${isAdmin ? 6 : 5}">No issues found.</td></tr>`;
+        tbody.innerHTML = `<tr class="empty-row"><td colspan="${isAdmin ? 7 : 6}">No issues found.</td></tr>`;
         return;
     }
 
@@ -149,6 +153,7 @@ function renderTable() {
       <td><span class="cell-id">#${String(issue.id).slice(-4)}</span></td>
       <td><span class="cell-badge">${issue.category}</span></td>
       <td style="color:#cce9f8;font-size:13px;">${issue.description}</td>
+      <td style="font-size:12px;color:#aacfe8;">${issue.date || 'N/A'}</td>
       <td><span class="${priorityClass(issue.priority)}">${issue.priority}</span></td>
       <td><span class="${statusClass(issue.status)}">${issue.status}</span></td>
       ${isAdmin ? `
@@ -205,6 +210,22 @@ function logout() {
 
 
 /*   login   */
+
+// Fix 3: checkAuth moved from login.html inline script to here
+function checkAuth() {
+    if (sessionStorage.getItem('loggedIn')) {
+        const role = sessionStorage.getItem('role');
+        window.location.replace(role === 'admin' ? 'admin.html' : 'index.html');
+    }
+}
+
+const isLoginPage = window.location.pathname.split('/').pop() === 'login.html' || window.location.pathname.endsWith('/') || window.location.pathname === '';
+if (isLoginPage) {
+    checkAuth();
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) { checkAuth(); }
+    });
+}
 
 let selectedRole = '';
 let generatedOTP = '';
@@ -368,6 +389,17 @@ function verifyAdmin() {
         window.location.replace('index.html');
         return;
     }
+
+    // Replaces inline pageshow scripts from all HTML pages
+    window.addEventListener('pageshow', function (event) {
+        if (event.persisted) {
+            const pg = window.location.pathname.split('/').pop();
+            const li = sessionStorage.getItem('loggedIn');
+            const rl = sessionStorage.getItem('role');
+            if (!li && !['login.html',''].includes(pg)) window.location.replace('login.html');
+            if (li && rl === 'student' && pg === 'admin.html') window.location.replace('index.html');
+        }
+    });
 
     window.addEventListener('popstate', function () {
         const currentPage = window.location.pathname.split('/').pop();
