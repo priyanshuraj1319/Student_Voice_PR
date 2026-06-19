@@ -34,8 +34,8 @@
             <input type="text" id="name" placeholder="Student name">
             <input type="text" id="roll" placeholder="Roll number">
             <input type="text" id="dept" placeholder="Department">
-            <select id="category">
-                <option value="">Select Category</option>
+            <select id="category" required>
+                <option value="" disabled selected>Select Category</option>
                 <option>Hostel Issue</option>
                 <option>Mess Issue</option>
                 <option>Electricity</option>
@@ -45,8 +45,8 @@
                 <option>Class Room</option>
                 <option>Library</option>
             </select>
-            <select id="priority">
-                <option value="">Select Priority</option>
+            <select id="priority" required>
+                <option value="" disabled selected>Select Priority</option>
                 <option value="High">High</option>
                 <option value="Mid">Mid</option>
                 <option value="Low">Low</option>
@@ -57,6 +57,22 @@
 
     </div>
 
+
+    <!-- Success Popup -->
+    <div class="success-overlay hidden" id="successOverlay">
+        <div class="success-popup">
+            <div class="success-icon">
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="26" cy="26" r="26" fill="#4CAF50" />
+                    <path d="M14 27 L22 35 L38 19" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+            <h2 class="success-title">Your issue has been submitted<br>successfully!</h2>
+            <p class="success-sub">We will notify you once it is updated.</p>
+            <button class="success-btn" onclick="window.location.href='dashboard.html'">View Dashboard</button>
+        </div>
+    </div>
     <footer class="footer">
         <span>Help</span>
         <span class="dot">&#8226;</span>
